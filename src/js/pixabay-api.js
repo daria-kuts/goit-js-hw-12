@@ -5,9 +5,9 @@ const API_KEY = "52812196-5a943dca1ddd7edd2406579c3";
 
 
 
-export function getImagesByQuery(query, page) {
-    return axios
-        .get(BASE_URL, {
+export async function getImagesByQuery(query, page = 1) {
+    try {
+        const response = await axios.get(BASE_URL, {
         params: {
          key: API_KEY,
          q: query,
@@ -18,5 +18,9 @@ export function getImagesByQuery(query, page) {
          safesearch: true,
             }
         })
-    .then(response => response.data);
+        return response.data;
+}
+    catch (error) {
+    throw new Error(error.message);
+  }
 }; 

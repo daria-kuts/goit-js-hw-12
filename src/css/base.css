@@ -100,7 +100,6 @@ button {
 
 .visible {
   display: block;
-  visibility: visible;
 }
 
 .loader::before,
@@ -120,11 +119,15 @@ button {
   border-color: #FF3D00;
 }
 .loadmore {
- visibility: hidden;
- display: flex;
-  justify-self: center;
-  margin-top: 32px;
+  display: none;
+  margin: 20px auto;
+  padding: 10px 20px;
 }
+
+.loadmore.visible {
+  display: block;
+}
+
 
 @keyframes rotate {
   0% {
